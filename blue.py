@@ -5,6 +5,7 @@ import time
 
 # List to store discovered devices
 discovered_devices = []
+discovered_devicess=[]
 
 # Start the overall discovery process
 start_time = time.time()  # Record the overall start time
@@ -12,10 +13,10 @@ start_time = time.time()  # Record the overall start time
 # Discover devices in a loop
 for _ in range(5):  # Try multiple scans to increase chances of discovery
     print("Scanning for devices...")
-    nearby_dev = bluetooth.discover_devices(duration=8, lookup_names=True, flush_cache=True)
+    nearby_dev = bluetooth.discover_devices(duration=2, lookup_names=True, flush_cache=True)
 
     for addr, name in nearby_dev:
-        if (addr, name) not in discovered_devices:  # Check if device is already discovered
+        if (addr, name) not in discovered_devicess:  # Check if device is already discovered
             # Record the start time for this device discovery
             device_start_time = time.time()
             
